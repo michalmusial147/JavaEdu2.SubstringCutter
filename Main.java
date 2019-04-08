@@ -6,12 +6,19 @@ public class Main {
         try{
             start = Integer.parseInt(args[1]);
             end = Integer.parseInt(args[2]);
-            if(end<start || end<0 || start<0)
-                throw new IllegalArgumentException("Wrong argument ");
+            if(end<start)
+            {
+                throw new IllegalArgumentException("End cannot be bigger than begin!");
+            }
+            if(end<0||start<0)
+            {
+                throw new IllegalArgumentException("Position cannot be less than zero!");
+            }
+
             System.out.println(args[0].substring(start, end));
         }
         catch(Exception e){
-            System.out.println("Exception occured");
+            System.out.println("Exception occured. "+e.getMessage());
             System.exit(1);
         }
 
